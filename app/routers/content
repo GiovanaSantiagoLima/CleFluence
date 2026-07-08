@@ -1,0 +1,16 @@
+from bson import ObjectId
+from fastapi import APIRouter, Depends, HTTPException
+from app.db.mongodb import get_db
+from app.schemas.content import ContentOut
+
+router = APIRouter(prefix="/content", tags=["content"])
+
+@router.get("/{content_id}", response_model=ContentOut)
+async def get_content(content_id: str, db=Depends(get_db)):
+    doc = await db.content.find_one({"_id": ObjectId(content_id)}, {"embedding": 0})
+    if not doc:
+        raise HTTPException(404, "Conteúdo não encontrado")
+    return ContentOut(id=str(doc.pop("_id")), **doc)
+
+
+
