@@ -70,8 +70,7 @@ Three specialized databases, each solving one problem, all on free/near-free tie
 
 ```
 app/
-  core/
-    config.py         # settings via environment variables
+
   db/
     mongodb.py         # Atlas connection + vector search
     neo4j_db.py        # Neo4j connection + Cypher queries
@@ -84,6 +83,7 @@ app/
   ingestion/            # (planned) RFI/TV5Monde/1jour1actu scraper + CEFR classifier
   speech/               # (planned) Whisper transcription + phonetic scoring
   main.py                # API entry point
+  config.py         # settings via environment variables
 requirements.txt
 
 ```
