@@ -1,0 +1,10 @@
+# Web Framework
+fastapi
+uvicorn[standard]
+
+# Banco de Dados
+motor
+neo4j
+redis
+
+
