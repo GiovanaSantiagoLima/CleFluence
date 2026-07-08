@@ -1,9 +1,8 @@
 from fastapi import FastAPI
-from app.api import speaking, listening, reading, writing
+from app.routers import content, progress, user
 
 app = FastAPI(title='CleFluence', versin = "0.1.0")
 
-app.include_router(speaking.router)
-app.include_router(listening.router)
-app.include_router(reading.router)
-app.include_router(writing.router)
+app.include_router(content.router)
+app.include_router(progress.router)
+app.include_router(user.router)
